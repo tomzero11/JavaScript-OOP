@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class : Getter Setter</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Class Getter dan Setter
+        => Class juga mendukung pembuatan Getter dan Setter 
+        => Perlu di ingat, Getter dan Setter akan berada di dalam Prototype, bukan menempel di Instance Object
+        */ 
+
+        // Contoh Getter dan Setter di dalam Class 
+        class Person {
+            constructor(firstName, lastName) {
+                this.firstName = firstName
+                this.lastName   = lastName
+            }
+
+            get fullName() {
+                return `hello nama Lengkap saya ${this.firstName} ${this.lastName}`
+            }
+
+            set fullName(value) {
+                const result = value.split(" ")
+                this.firstName = result[0]
+                this.lastName = result[1]
+            }
+        }
+
+        const eko = new Person("eko", "Kurniawan")
+        // Ingat Getter dan SETTER bukan sebuah function jadi untuk memanggil Getter dan Setter hanya panggil nama nya
+        // UNTUK MEMANGGIL GETTER DAN SETTER TIDAK PERLU MENGGUNAKAN () KURUNG BUKA KURUNG TUTUP
+        // Pnggil Getter
+        console.log(eko.fullName)
+        // Panggil Setter
+        eko.fullName = "mamad kusnandar"
+        console.log(eko.fullName)
+        console.log(eko.firstName)
+        console.log(eko.lastName)
+        console.log(eko)
+
+    </script>
+</body>
+</html>

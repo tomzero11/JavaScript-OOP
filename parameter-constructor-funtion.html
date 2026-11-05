@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parameter di Constructor Function</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Parameter di Constructor Function
+        => Karena dalam JavaScript, Class adalah berbentuk function, jadi secara default
+            function tersebut bisa memiliki Parameter
+        => Constructor Function sama seperti function biasanya, bisa memiliki Parameter, 
+            hal ini membuat ketika membuat object atau membuat isi data dari property,
+            kita bisa mengirim langsung lewat Parameter di Construnctir Function
+        => Jika parameter tidak di isi maka type data dari paremeter tersebut menjadi Undefined
+        */
+
+        // Contoh Parameter di Constructor Function
+        function Person(firstName, middleName, lastName) {
+            this.firstName  = firstName
+            this.middleName = middleName
+            this.lastName   = lastName
+        }
+        const eko = new Person("Eko", "Kurniawan", "Khanedy")
+        console.log(eko)
+
+        function Names(firstName, middleName, lastName) {
+            this.firstName  = firstName
+            this.middleName = middleName
+            this.lastName   = lastName
+            this.sayHello   = function(name) {
+                return `Hello ${this.firstName} ${this.middleName} ${this.lastName} ${name}`
+            }
+        }
+        const budi = new Names("Budi", "Bin", "Nugaraha")
+        console.log(budi.sayHello("Jajang")) // mengisi data object dari parameter name
+
+
+        // Type Data Property akan Undefined jika tidak di isi type data dari Property Tersebut 
+        function DataNames(firstName, middleName, lastName) {
+            this.firstName  = firstName
+            this.middleName = middleName
+            this.lastName   = lastName
+            this.sayHello   = function() {
+                return `Hello ${this.firstName} ${this.middleName} ${this.lastName}`
+            }
+        }
+        const mamad = new DataNames()
+        console.log(mamad)
+        console.log(mamad.sayHello())
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class : Static Field</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Kata Kunci Static
+        => Static adalah kata kunci yang bisa ditambahkan sebelum Field atau Method
+        => Biasanya ketika kita membuat Field atau Method, maka secara otomatis Field 
+        */ 
+
+        /*
+            Static Class Field
+        => Kita bisa menambahkan Static dalam class Field, secara otomatis Field Tersebut
+            bukan lagi milik Instance Object, melaikan Milik Class Itu Sendiri
+        => Biasanya Static digunakan untuk membuat Utility Field atau Function 
+        => Cara mengakses Static Class Field pun tidak lagi lewat Instance Object ny,
+            Melainkan Lewat Langsung Dari Class nya
+        => Statuc Class Field bisa di artikan sifat nya Global, tidak peduli di akses dari
+            mana atau siapa saja yang akses hasil nya akan sama. 
+        */ 
+
+        /*
+            KASUS KAPAN KITA HARUS MENGGUNAKAN STATIC CLASS FIELD
+        => Saat datanya bersifat Glonal, Milik Class itu sendiri, atau Configuruasi yang 
+            nilainya selalu sama tanpa peduli berapa banyak Object yang di buat
+        => Contoh : 
+            -> Configurasi Sistem (static APP_VERSION = "1.0.0")
+        */ 
+
+        // Contoh Static Field
+        class Configuration {
+            // Field biasa dia akan menempel di Instance Object,
+            // Sedangkan Static Field dia akan menempel di dalam class nya 
+            static name = "JavaScript" // Field milik Class nya / Class Configurasin 
+            static version = 1.0 // Field milik Class nya / Class Configurasin
+        }
+
+        // Field bukan lagi milik Instance Object karena ada Static 
+        const config = new Configuration()
+        console.log(config)
+
+        // Cara mengakses Langsung dari NamaClass.namaFieldNya
+        console.log(Configuration.name)
+        console.log(Configuration.version)
+
+    </script>
+</body>
+</html>

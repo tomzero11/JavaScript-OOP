@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Throw Error</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Throw Error 
+        => Saat kita membuat Instance Object dari Class Error , tidak lantas otomatis terjadi Error
+        => Kita perlu memberitahu Program kita, bahwa kita akan Mentrigger sebauh Error terjadi,
+            atau istilah nya adalah melempar Error (Throw Error)
+        => Untuk melempar Error kita bisa gunakan kata kunci Throw Error, di ikuti dengan Instance 
+            Object Error nya 
+        => Jika terjadi Error maka otomatiss Code Program kita akan Terhenti, dan Kita bisa melihat 
+            Detail Error nya di Console.log Browser
+        */ 
+        
+        // Contoh Memberikan Error di Program Jika Memang Terjadi Error 
+        class MathUtils {
+
+            static sum(...numbers) {
+                // Parsing Error Jika Parameter tidak menangkap data kosong
+                // Jika Terjadi Error Akan Behenti Di sini Code di bawah nya tidak akan di Eksekusi
+                if (numbers.length === 0) {
+                    throw new Error("Tidak ada angka yang di masukkan")
+                }
+
+                let total = 0 
+                for (const value of numbers) {
+                    total = total + value
+                }
+                return total 
+            }   
+        }
+        // Mengirim Argument data kosong maka pesan terjadi Error Di Console
+        console.log(MathUtils.sum())
+
+    </script>
+</body>
+</html>

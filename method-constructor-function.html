@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Method Constructor Function</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Method Constructor Function
+        => Sama seperti type data Object Pada Biasanya, kita juga bisa menambahkan method 
+            di dalam Constructor Function
+        => Jika kita menambahkan method di Constructor Function, secara otomatis object yang 
+            dibuat akan memiliki method tersebut.
+        */
+
+        // Contoh function di Constructor Function
+        function Person() {
+            this.firstName = ""
+            this.lastName   = ""
+            this.sayHello = function() {
+                return `Hello ${this.firstName} ${this.lastName}`
+            }
+        }
+
+        const eko = new Person()
+        eko.firstName = "eko"
+        eko.lastName = "nugraha"
+        console.log(eko.sayHello())
+
+        function Names() {
+            this.firstName  = ""
+            this.lastName   = ""
+            this.hello      = function() {
+                console.log(`hello ${this.firstName} ${this.lastName}`)
+            }
+        }
+        const budi = new Names()
+        budi.firstName = "budi"
+        budi.lastName = "Nugraha"
+        budi.hello()
+
+        //Contoh Function Parameter di Constructor Function
+        function DataNames() {
+            this.firstName = ""
+            this.middleName = ""
+            this.lastName = ""
+            this.hai = function (name){
+                return `hai nama saya ${this.firstName} ${this.middleName} ${this.lastName} bisa di panggil ${name}`
+            }
+        } 
+
+        const mamad = new DataNames()
+        mamad.firstName = "Mamad"
+        mamad.middleName = "kusnandar"
+        mamad.lastName = "Kirun"
+        console.log(mamad.hai("Mamad"))
+
+    </script>
+</body>
+</html>

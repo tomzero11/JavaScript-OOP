@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class : Public Field</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Field
+        => Field adalah sebuah variable yang di deklarasikan di dalam sebuah Class
+            untuk menyimpan data atau attribute yang dimiliki oleh Object tersebut
+        */ 
+
+        /*
+            Class : Public Field
+        => EcmaScript akan mendukung acces modifier Public dan Private
+        => Public Artinya bisa diakses dari luar Class
+        => Private Artinya hanya bisa di Akses di dalam Class nya saja
+        => Untuk Membuat Public Class Field, kita bisa langsung buat nama Field dengan value 
+            Selevel dengan Method di Class
+        => Jika tidak memasukkan value apapun ke dalam Field maka Field tersebut memiliki value Undefined
+        => Field ini menempel di Instance Object 
+        */ 
+
+         // Contoh Public Class Field
+        class Person {
+            // Ini adalah Public Filed atau Sebuah Variable di dalam sebuah Class
+            // Jika Field tidak memasukkan value maka Field value nya Undefined
+            firstName // Field ini menempel di Instance Object 
+            lastName
+
+            constructor(firstName, lastName) {
+                this.firstName = firstName
+                this.lastName = lastName
+            }
+
+            get fullName() {
+                return `Full Name : ${this.firstName} ${this.lastName}`
+            }
+
+        }
+        // Instance Object
+        const eko = new Person("EKo", "Kurniawan")
+        console.log(eko.fullName)
+
+
+
+    </script>
+</body>
+</html>

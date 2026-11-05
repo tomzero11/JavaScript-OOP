@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class : Static Method</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Class : Static Method 
+        => Kata kunci Static juga tidak hanya bisa di tambahkan di Field, tapi juga bisa di Method
+        => Jika kita menambahkan Statuc di Method, Artinya Method tersebut akan menjadi Milik Class nya,
+            Bukan Milik Prototype nya
+        => Dan untuk mengakses Static Method caranya Langsung Panggil NamaClassnya.namaMethodnya
+        */ 
+
+        class Configuration {
+            static version = "1.0"
+            static sayHello() {
+                if (Configuration.version) {
+                    return `JavaScript Versi : ${Configuration.version}`
+                } else {
+                    return "JavaScript UNKNOWN"
+                }
+            }
+        }
+        const config = Configuration.sayHello()
+        console.log(config)
+
+        // Contoh Class Static Method
+        class MathUtil {
+            static sum(...value) {
+                let total = 0
+                for (const numbers of value) {
+                    total = total + numbers
+                }
+                return total
+            }
+
+            static perkalian(...numbers) {
+                let total = 1
+                for (const number of numbers) {
+                    total = total * number
+                }
+                return total
+            }
+        }
+        // Langsung Panggil Class.Method nya
+        const number = MathUtil.sum(1,2,3,4,5)
+        console.log(number)
+
+        const perkalian = MathUtil.perkalian(1,2,3,4,5)
+        console.log(perkalian)
+        
+        
+
+    </script>
+</body>
+</html>

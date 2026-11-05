@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor Class</title>
+</head>
+<body>
+    <script>
+        
+        /*
+            Penjelasan Consturctor 
+        Constructor adalah sebuah Function khusus yang ada di dalam sebuah class yang 
+        otomatis di jalankan pertama kali saat sebuah object di buat dalam class tersebut
+        */ 
+
+        /*
+            Constructor Function Class
+        => Di class juga kita bisa menambahkan Constructor, dimana dengan menggunakan 
+            constructor bisa menambahkan parameter dsaat pertama kali membuat object
+        => Untuk membuat constructor di class kita bisa menggunakan kata kunci "constructor"
+        */
+
+
+       class Person {
+            // Class Constructor 
+            constructor(firstName, lastName) {
+                this.firstName = firstName
+                this.lastName   = lastName
+                this.sayHello = function() {
+                    console.log(`hello ${this.firstName} ${this.lastName}`)
+                }
+            }
+        }
+
+        const mamad = new Person("Mamad", "Junaidi")
+        mamad.sayHello()
+        const budi = new Person("Budi", "Juned")
+        budi.sayHello()
+
+    </script>
+</body>
+</html>

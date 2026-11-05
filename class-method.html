@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+
+        /*
+            Method Class
+        => Untuk membuat Mthod di class sebaik nya ditambahakan langsung ke Property nya
+        => Tidak di SARANAKAN UNTUK DI TAMBAHKAN DI INSTANCE OBJECT NYA
+        */
+
+        // Contoh Yang TIDAK DISANRANKAN
+        class Peron {
+            constructor(firstName, lastName) {
+                this.firstName = firstName
+                this.lastName = lastName
+                this.sayHello   = function() {
+                    return `Hello ${this.firstName} ${this.lastName}`
+                }
+            }
+        }
+        // Contoh Yang TIDAK DI SARANKAN
+        const eko = new Peron("Eko", "Kusnanadar")
+        eko.Hai = function() {
+            return `Hello `
+        }
+        console.log(eko)
+
+        /*
+        => Cara di atas tidak di sarankan karena cara tersebut hanya menambah atau menempel Property di 
+            Instance Object nya tidak Langsung ke Prototype nya
+        */ 
+
+        /*
+        => Cara di bawah ini DISARANKAN karena Method tidak menempel di Instance Object
+        => Melainkan berada langsung di dalam Prototypenya. 
+        */ 
+
+        // Contoh Yang DISARANKAN
+        class DataEmployee {
+            constructor(firstName, lastName) {
+                this.firstName = firstName
+                this.lastName   = lastName
+            }
+            sayHello(name) {
+                return `Hello ${this.firstName} ${this.lastName} ${name}`
+            }
+        }
+        const budi = new DataEmployee("Budi", "Doremi")
+        console.log(budi.sayHello("Joko"))
+        console.log(budi)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Inheritence</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Class Inheritence
+        => Sebuah Class bisa melakukan pewarisan dari class lain nya dengan menggunakan 
+            kata kunci extend
+        => Class Inheritance sama seperti Prototype Inheritance, hanya bisa memiliki
+            satu Parent Class
+        */ 
+
+        // Contoh Class Inherintance
+        class Parent {
+            constructor(name) {
+                this.name = name 
+                
+            }
+            sayHello(name) {
+                console.log(`nama ibu ${this.name}, nama anak ${name}`)
+            }
+        }
+        //  Bahwa Class Child Mewarisi method value apapun itu yang ada di Class Parent
+        class Child extends Parent {
+            sayHello(name) {
+                console.log(`nama anak ${this.name}, nama ibu ${name}`)
+            }
+        }
+
+        const sujinah = new Parent("Sujinah")
+        const mamad = new Child("Mamad")
+        sujinah.sayHello("mamad")
+        mamad.sayHello("sujinah")
+        console.log(sujinah)
+        console.log(mamad)
+
+    </script>
+</body>
+</html>

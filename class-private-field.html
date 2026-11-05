@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class : Private Field</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Field
+        => Field adalah sebuah variable yang di deklarasikan di dalam sebuah Class
+            untuk menyimpan data atau attribute yang dimiliki oleh Object tersebut
+        */ 
+
+        /*
+            Class : Private Field
+        => EcmaScript akan mendukung acces modifier Public dan Private
+        => Private Artinya hanya bisa di Akses di dalam Class nya saja
+        => Untuk Membuat  Class Field, kita bisa langsung buat nama Field dengan value 
+            Selevel dengan Method di Class
+        => Jika kita ingin membuat Field yang bersifat Private (Hanya bisa di akses dalam Class tersebut)
+            kita bisa menggunakan tanda # sebelum nama Field nya
+        => Jika tidak memasukkan value apapun ke dalam Field maka Field tersebut memiliki value Undefined
+        => Field ini menempel di Instance Object 
+        => Dinamakan Private Class Field karena hanya bisa di Akses di dalam Class itu saja
+        */ 
+
+        // Contoh Private Class Field
+        class Person {
+            // Ini adalah Private Filed atau Sebuah Variable di dalam sebuah Class
+            // Jika Field tidak memasukkan value maka Field value nya Undefined
+            // Field ini menempel di Instance Object 
+            // Private Class Field
+            #firstName 
+            #lastName
+
+            constructor(firstName, lastName) {
+                this.firstName = firstName
+                this.lastName = lastName
+            }
+
+            get fullName() {
+                return `Full Name : ${this.firstName} ${this.lastName}`
+            }
+
+        }
+        const budi = new Person("Budi", "Kurniawan")
+        console.log(budi.fullName)
+
+        // Contoh Private Class Field 
+        class Counter {
+            #counter = 0
+            increment() {
+                this.#counter++
+            }
+            decrement() {
+                this.#counter--
+            }
+            // Untuk Mendapatkan Hasil 
+            get result() {
+                return this.#counter
+            }
+        }
+        const counter = new Counter()
+        counter.increment()
+        counter.increment()
+        counter.increment()
+        counter.increment()
+        counter.increment()
+        counter.decrement()
+        console.log(counter.result)
+        console.log(counter)
+
+        // Semisal ingin rubah COunter nya padahal tidak akan berubah
+        // Malah akan meneambah Property di Instance Object 
+        // Tidak akan merubah Private Class Field nya, karena bersifat Private
+        counter.counter = 100
+
+
+    </script>
+</body>
+</html>

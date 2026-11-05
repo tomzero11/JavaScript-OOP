@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor Inheritence</title>
+</head>
+<body>
+    
+    <script>
+
+        /*
+            Constructor Inheritance
+        => Dalam Constructor, kita biasanya membuat Property baik itu berisi value ataupun function
+        => Di dalam Constructo Function, kita bisa memanggil Constructor Lain, dengan begitu
+            kita bisa mewarisi semua Property yang di buat di Constructor Lain Tersebut
+        => Untuk memanggil Contructor Lain, kita bisa menggunakan NamaConstuctor.call(thsi, parameter)
+        
+        */
+
+        // Constructor Function
+        function Names(firstName, middleName ,lastName) {
+            this.firstName  = firstName
+            this.lastName   = lastName
+            // MengCopy Constructor Function milik MiddelNames dan isi Parameter sesuai dengan milik Constructor Function Aslinya 
+            // Parameter bisa lebih dari satu
+            MiddleName.call(this, middleName) 
+            this.sayHello   = function(name) {
+                return `Hello ${this.firstName} ${this.middleName} ${this.lastName} ${name}`
+            }
+        }
+        // Contructor Function 
+        function MiddleName(middleName) {
+            this.middleName = middleName
+        }
+
+        const budi = new Names("Budi", "Bin", "Nugaraha")
+        console.log(budi.sayHello("Jajang"))
+        console.table(budi)
+        console.log(budi)
+    </script>
+    
+</body>
+</html>

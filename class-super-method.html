@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Super Method</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Class Super Method
+        => Method Hanya ada di dalam Prototype Tidak Di Instance Object
+        => Selain digunakan untuk memanggil Constructor milik Parent Class, kata kunci "SUPER" 
+            juga bisa digunakan untuk mengakses Method Milik Parent Class
+        => Caranya bisa menggunakan super.namaFunction nya
+        => Dengan kata lain, super sebenar nya adalah referensi ke Parent Prototype
+        */
+        
+        // Contoh Super Method 
+        class Shape {
+            paint() {
+                console.log("Ini adalah Shape")
+            }
+        }
+
+        class Circle extends Shape {
+            paint() {
+                super.paint() // memanggil method paint dari Parent Class nya
+                console.log("Ini adalah Circle")
+            }
+        }
+
+        const bulat = new Circle()
+        bulat.paint() // hasil semua method di panggil dan di printout hasil nya 
+
+
+        // Contoh Super Method 
+        class Parent {
+            sayHelloParent () {
+                console.log("Ini Hello dari Parent ")
+            }
+        }
+        
+        /* 
+        Bahwasanya Method yang dimiliki Oleh Parent Juga akan ikut di miliki oleh Childnya
+        jika dengan cara menggunakan kata kunci super.namaMethod dari Parent nya
+        */
+        class Child extends Parent {
+            sayHelloParent() {
+                // Memanggil method dari Parent nya 
+                super.sayHelloParent()
+            }
+            sayHelloChild() {
+                console.log("Ini Hello dari Child")
+            }
+        }
+
+        const childParent = new Child()
+        childParent.sayHelloChild()
+        childParent.sayHelloParent()
+    </script>
+</body>
+</html>

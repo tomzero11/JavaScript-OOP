@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Class</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Error Class 
+        => Walaupun JavaScript SUdah memiliki standar Class Error 
+        => Namun Best Praktis nya kita membedakan Tiap Jenis Error
+        => Untuk membuat Class Error sangat Mudah, Cukup membuat Class Turunan dari 
+            Class Error 
+        => Dan jagan Lupa Tambahkan Parameter Message, agar bisa dikirimkan ke Parameter
+            di Constructor Class Error 
+        */ 
+
+        // Class Error Digunakan di panggil Jika Terjadi Error
+        // Class Error Sudah ada bawaan dari JavaScript 
+        class ValidationError extends Error {
+            constructor(message, field) {
+                super(message) // Message ini Wajib Agar bisa Di Kirim Class Error
+                this.field = field
+            }
+        }
+
+        class MathUtils {
+
+            static sum(...numbers) {
+
+                if (numbers.length === 0) {
+                    throw new ValidationError(" tidak ada value nya", "numbers")
+                }
+
+                let total = 0
+                for (const value of numbers) {
+                    total = total + value
+                }
+                return total
+            }
+        }
+        try {
+            const number = MathUtils.sum() // Mengirim Argument kosong sehingga Field Bernilai Undefined
+            console.log(number)
+        } catch (error) {
+            if (error instanceof ValidationError) {
+                console.log(`error terjadi di Field karena data ${error.field} ${error.message}`)
+            } else {
+                console.log(`Error Umum : ${error.message}`)
+            }
+        } finally {
+            console.log("Program selesai")
+        }
+
+
+    </script>
+</body>
+</html>

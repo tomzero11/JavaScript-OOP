@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class : Private Method</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Class : Private Method
+        => Sama seperti Field terdapat Private Method di dalam EcmaScript
+        => Dengan demikian, Access modifier Private juga bisa digunakan di Method
+        => Cara nya sama dengan, menambahkan tanda # diawal Method, maka secara Otomatis
+            Method tersebut menjadi Private 
+        */ 
+
+        class Person {
+
+            #name
+            // Ini Bertugas Menangkap Argument yang di kirimkan Instance Object 
+            // Kemudian di kirim menjadi Private Class Field
+            constructor(name) {
+                this.#name = name
+            }
+            // Private Method
+            #sayWithName(name) {
+                return  `Name : ${name}`
+            }
+            #sayWithoutName() {
+                return `Hello tanpa nama`
+            }
+
+            sayHello() {
+                if (this.#name) {
+                    return this.#sayWithName(this.#name)
+                } else {
+                    return this.#sayWithoutName()
+                }
+            }
+        }
+        // Instance Object di dalam nya ada Class dan ada Argument 
+        const person = new Person("budi")
+        console.log(person.sayHello())
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Handling : Try Catch</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Error Handling : Try Catch Finally
+        => Saat terjadi error di Code Program, kita tidan ingin Program nya Berhenti
+        => Kita bisa menangkap dari Error  tersebut
+        => Untuk menangkap Pesan Error Gunakan Try Catch
+        => Try akan mencoba program nya terlebih dahulu kemudian jika terjadi error akan masuk ke Catch
+        */
+
+        /*
+            Kata Kunci Finally
+        => Kadang kita ingin melakukan sesuatu entah terjadi error atau tidak 
+        => Dalam Try Catch kita bisa menambahkan Block Finally
+        => Block Finally akan selalu di Eksekusi setlah Try Catch selesai, entah terjadi 
+            Error atau Tidak, Block Finally akan Selalu Di Eksekusi
+        */ 
+
+
+        // Contoh Try Catch Finally
+        class MathUtils {
+            static sum(...numbers) {
+
+                if (numbers.length === 0) {
+                    throw new Error("Tidak ada Data yang di inputkan")
+                }
+
+                let total = 0 
+                for (const value of numbers) {
+                    total = total + value 
+                }
+
+                return total
+            }
+        }
+
+        try {
+            const number = MathUtils.sum()
+            console.log(number)
+            console.log("Try Behenti")
+        } catch (error) {
+            console.error(`Terjadi Error : ${error.message}`)
+        } finally {
+            console.log("Program selesai")
+        }
+
+        /*
+            Try Finally
+        => Block Finally juga bisa digunakan tanpa perlu menggunakan Catch
+        => Biasanya ini digunakan dalam Kasus Tertentu Saja 
+        */ 
+
+        // Try Finally Digunakan Hanya Pada Kasus-Kasus Tertentu
+        class Counter {
+
+            #counter = 1
+            next() {
+                try {
+                    return this.#counter
+                } finally {
+                    this.#counter++
+                }
+            }
+        }
+        const counter = new Counter()
+        console.log(counter.next())
+        console.log(counter.next())
+        console.log(counter.next())
+        console.log(counter.next())
+    </script>
+</body>
+</html>

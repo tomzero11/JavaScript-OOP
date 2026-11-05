@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        /*
+            Property 
+        => Property adalah sebuah variabel yang berada di dalam sebuah class atau objek
+        */ 
+
+        /*
+            Property di Class
+        => Sama serperti Constructor Function, dalam class pun kita bisa menambahkan Property
+        => Kareen hasil akhirnya adalah sebuah object, jadi menambahkan Property di
+            di class dan bisa juga di lakukan di Instance Objectnya
+        */ 
+
+        class Person {
+            // Class Constructor 
+            constructor(firstName, lastName) {
+                // Property Constructor
+                this.firstName = firstName
+                this.lastName   = lastName
+                this.sayHello = function() {
+                    console.log(`hello ${this.firstName} ${this.lastName}`)
+                }
+            }
+        }
+
+        const mamad = new Person("Mamad", "Junaidi")
+        mamad.sayHello()
+        const budi = new Person("Budi", "Juned")
+        budi.sayHello()
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Super Consstructor</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Class Super Constructor
+        => Class Inheritance sifat nya seperti Prototype Inheritance
+        => Kata Kunci Super digunakan untuk memanggil Constructor Super Class
+        => Jika di Child class membuat Constructor baru, maka Wajjin memanggil 
+            Consturctor Milik Parent nya menggunakan kata kunci "super"
+        */ 
+
+        class FirstName {
+            constructor(firstName) {
+                this.firstName = firstName
+            } 
+            // Cara menulis Method atau Function di dalam sebuah Class
+            sayHello() {
+                console.log(`nama depan saya ${this.firstName}`)
+            }
+
+        }
+
+        class LastName extends FirstName {
+            /*
+            Jika ingin membuat Constructor baru di yang mewarisi Constructor Lain 
+            harus menggunakan kata kunci super dan harus memanggil Constructor yang diwariskan
+            */
+            constructor(firstName, lastName) {
+                super(firstName) // Wajib menggunakan SUPER
+                this.lastName = lastName
+            }
+            sayHello() {
+                console.log(`nama belakang saya ${this.lastName}`)
+            }
+            fullName() {
+                console.log(`Full Name ${this.firstName} ${this.lastName}`)
+            }
+        }
+
+        const budi = new FirstName("Budi")
+        const kurniawan = new LastName(budi.firstName, "Kurniawan")
+        budi.sayHello()
+        kurniawan.sayHello()
+        kurniawan.fullName()
+
+    </script>
+</body>
+</html>

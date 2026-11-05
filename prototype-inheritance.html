@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype Inheritance</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Prototype Inheritance
+        => Bahwasanya Prototype selalu memiliki Parent, Artinya dia adalah turunan
+            dan Parent tertinggi nya adaalah Prototype Object
+        => Bagaimana cara mewariskan Prototype ke Prototype yang lain
+        */
+
+        function Parent(name) {
+            this.name = name
+        }
+
+        function Child(name) {
+            this.name = name
+        }
+        // Pewarisan dari Protoype ke Prototype yang Lain
+        Child.prototype = Object.create(Parent.prototype)
+
+        Parent.prototype.sayHello = function(childName) {
+            console.log(`nama saya ibu ${this.name} , ibu dari anak yang bernama ${childName}`)
+        }
+        
+        Child.prototype.sayHello = function(parentName) {
+            console.log(`nama saya ${this.name} , anak dari ibu ${parentName}`)
+        }
+
+        const sujinah = new Parent("Sujinah")
+        sujinah.sayHello("mamad")
+        const mamad = new Child("mamad")
+        mamad.sayHello("sujinah")
+
+        console.log(sujinah)
+        console.log(mamad)
+
+
+    </script>
+</body>
+</html>

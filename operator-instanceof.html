@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operator Instance Of</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Operator Instance Of
+        => Kadang ada kasus kita ingin mengecek apakah sebuah object merupakan
+            Instance dari Class tertentu atau bukan
+        => Untuk mengecek Instance Object merupakan dari Class tersebut atau tidak gunakan
+            kata kunci instanceof
+        => Operator Instanceof akan menghasilkan nilai Boolean, true jika benar Instance
+            Object bagian dari Class tersebut
+        => Bernilai False jika Instance Object BUKAN dari BAGIAN Class tersebut
+        */
+
+        // Contoh Operator InstanceOf
+        class Employee {
+
+        }
+        
+        class Manager {
+
+        }
+
+        const budi = new Employee() //  Object Instance
+        const mamad = new Manager() // Object Object
+
+        console.log(budi instanceof Employee) // true karena budi bagian dari Class Employee
+        console.log(budi instanceof Manager) // false karena budi BUKAN bagian dari Class Employee
+
+        console.log(mamad instanceof Employee) // false karena mamad BUKAN bagian dari Class Employee
+        console.log(mamad instanceof Manager) // true karena mamad bagian dari Class Employee
+
+        /*
+            Operator Instance Of di Class Inherintance
+        => Operator Inheritance mendukung class Inheritance
+        => Artinya Instance Of juga bisa digunakan untuk mengecek, Apakah sebauh Instance 
+            Object Tersebut adalahInstance dari Class Tertentu Atau TURUNAN dari Class Tertentu
+        */ 
+
+        // Contoh mengecek Apakah Instance Object Tersbut adalah Bagian Dari Class tersebut atau Turunan dari Class Yang Lain
+
+        class Parent {
+
+        }
+
+        class Child extends Parent {
+
+        }
+
+        const parent = new Parent() // Instance Objeck
+        const child = new Child()   // Instance Object
+
+        console.log(parent instanceof Parent) // true karena parent bagian dari Class Parent
+        console.log(parent instanceof Child) // false karena parent BUKAN bagian dari Class Child
+
+        console.log(child instanceof Parent) // true akarena child adalah turunan dari Class Parent
+        console.log(child instanceof Child) // true akarena child adalah bagian dari Class Child
+
+
+    </script>
+</body>
+</html>
